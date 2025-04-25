@@ -1,15 +1,30 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
-import About from './Pages/About';
+import { useState } from "react"
+import Button from "./components/Button";
 
-export default function App() {
+function App() {
+  const [contador, setContador] = useState(0);
+
+  //Aqui hiba el fragmento de codigo del contador (al llegar a 10 se regresa a -10)
+
   return (
     <div>
-      {}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <h1>No hiciste caso {contador} veces</h1>
+      {contador % 2 === 0 ? (
+        <p>El contador es par</p>
+      ) : (
+        <p>El contador es impar</p>
+      )}
+
+
+    <Button contador={1} mensaje={"Aumentar el contador"}  setContador ={setContador}/>
+    <Button contador={-1} mensaje={"Decrementar el contador"}  setContador ={setContador}/>
+
+      
+  
     </div>
   );
 }
+
+export default App;
+//Hacer que tenga estilo y el html 
+// llegando a 10 reinice el contador al -10 y cuando llegue al -10 llegue al 10
